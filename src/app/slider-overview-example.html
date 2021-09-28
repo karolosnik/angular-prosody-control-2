@@ -5,13 +5,16 @@
       <!-- <mat-panel-description> Type your name and age </mat-panel-description> -->
     </mat-expansion-panel-header>
 
-    <h3
+    <h4>Highlight a phone or a word from the bellow sentence</h4>
+
+    <i
       id="sentence-original"
       [style.display]="!showInstr ? 'block' : 'none'"
+      style="font-size: 20px"
       (mouseup)="trackHighlightedText()"
     >
       {{utt}}
-    </h3>
+    </i>
     <h3
       id="sentence-show-instructions"
       [style.display]="showInstr ? 'block' : 'none'"
@@ -25,20 +28,20 @@
       style="margin-left: auto; margin-right: auto"
     ></mat-spinner>
 
-    <mat-card class="result">
+    <mat-card class="result" *ngIf="!loader && selectedText.phrase.length != 0">
       <mat-card-content>
         <h2 class="example-h2">Prosody Control</h2>
         <!-- <button
-        mat-mini-fab
-        color="primary"
-        id="show-instructions1"
-        #tooltip="matTooltip"
-        (click)="giveInstuctions()"
-        matTooltip="get instructions"
-        matTooltipPosition="right"
-      >
-        <mat-icon>live_help</mat-icon>
-      </button> -->
+      mat-mini-fab
+      color="primary"
+      id="show-instructions1"
+      #tooltip="matTooltip"
+      (click)="giveInstuctions()"
+      matTooltip="get instructions"
+      matTooltipPosition="right"
+    >
+      <mat-icon>live_help</mat-icon>
+    </button> -->
 
         <button
           mat-mini-fab
@@ -52,7 +55,7 @@
         </button>
 
         <section class="example-section">
-          <mat-grid-list cols="5" rowHeight="100px">
+          <mat-grid-list cols="5" rowHeight="50px">
             <mat-grid-tile [colspan]="1" [rowspan]="1">
               control level
             </mat-grid-tile>
@@ -102,7 +105,7 @@
       mat-table
       matSort
       *ngIf="!loader"
-      style="width: 100%"
+      style="width: 100%; margin-top: 20px"
       [dataSource]="dataSource"
       class="mat-elevation-z8"
     >
@@ -172,7 +175,7 @@
     </table>
 
     <!-- Copyright 2020 Google LLC. All Rights Reserved.
-      Use of this source code is governed by an MIT-style license that
-      can be found in the LICENSE file at http://angular.io/license -->
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
   </mat-expansion-panel>
 </mat-accordion>

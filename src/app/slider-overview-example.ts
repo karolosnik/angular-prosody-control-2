@@ -133,10 +133,10 @@ export class SliderOverviewExample {
     );
     var center = 'kalispera kai kali vradia'.slice(
       this.selectedText.position - 1,
-      this.selectedText.position + this.selectedText.phrase.length - 1
+      this.selectedText.position + this.selectedText.phrase.length
     );
     var right = 'kalispera kai kali vradia'.slice(
-      this.selectedText.position + this.selectedText.phrase.length - 1
+      this.selectedText.position + this.selectedText.phrase.length
     );
     ELEMENT_DATA.push({
       phrase: { left: left, center: center, right: right },
@@ -145,8 +145,6 @@ export class SliderOverviewExample {
       duration: durationVal,
       wav: 'wav',
     });
-
-    console.log(this.selectedText.position, this.selectedText.phrase.length);
 
     this.loader = false;
     this.tiles[0].disabled = false;
