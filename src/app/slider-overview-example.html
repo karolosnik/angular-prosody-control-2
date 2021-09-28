@@ -5,23 +5,38 @@
       <!-- <mat-panel-description> Type your name and age </mat-panel-description> -->
     </mat-expansion-panel-header>
 
-    <h4>Highlight a phone or a word from the bellow sentence</h4>
+    <h4>
+      Highlight either a phone or a word from the bellow sentence
+      <button
+        mat-mini-fab
+        color="primary"
+        id="show-instructions1"
+        #tooltip="matTooltip"
+        (click)="giveInstuctions()"
+        matTooltip="get instructions"
+        matTooltipPosition="right"
+        style="margin-bottom: 20px"
+      >
+        <mat-icon>live_help</mat-icon>
+      </button>
+    </h4>
 
     <i
       id="sentence-original"
       [style.display]="!showInstr ? 'block' : 'none'"
-      style="font-size: 20px"
+      style="font-size: 20px; margin-bottom: 20px"
       (mouseup)="trackHighlightedText()"
     >
       {{utt}}
     </i>
-    <h3
+    <i
       id="sentence-show-instructions"
       [style.display]="showInstr ? 'block' : 'none'"
+      style="margin-bottom: 20px"
       (mouseup)="trackHighlightedText()"
     >
       {{utt}}
-    </h3>
+    </i>
 
     <mat-spinner
       *ngIf="loader"
@@ -31,18 +46,6 @@
     <mat-card class="result" *ngIf="!loader && selectedText.phrase.length != 0">
       <mat-card-content>
         <h2 class="example-h2">Prosody Control</h2>
-        <!-- <button
-      mat-mini-fab
-      color="primary"
-      id="show-instructions1"
-      #tooltip="matTooltip"
-      (click)="giveInstuctions()"
-      matTooltip="get instructions"
-      matTooltipPosition="right"
-    >
-      <mat-icon>live_help</mat-icon>
-    </button> -->
-
         <button
           mat-mini-fab
           id="get-wav-button"
